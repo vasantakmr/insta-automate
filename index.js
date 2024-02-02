@@ -1,5 +1,6 @@
 const express = require("express"),
   { urlencoded, json } = require("body-parser"),
+  bodyParser = require("body-parser"),
   crypto = require("crypto"),
   path = require("path"),
   app = express();
@@ -7,11 +8,8 @@ const express = require("express"),
 var users = {};
 
 // Parse application/x-www-form-urlencoded
-app.use(
-  urlencoded({
-    extended: true
-  })
-);
+app = express().use(bodyParser.json());
+
 
 
 app.get('/api', function (req, res) {
@@ -36,12 +34,16 @@ app.get('/api', function (req, res) {
         }
     }
 })
-  
+
 app.post('/api', function (req, res) {
     console.log("Post called")
-    console.log(req.body);
-    
-	res.status(200).json({msg: `It's a Post request.`});
+    console.dir(req.body);
+
+    if(req.body.object == "comments") {
+        console.log("In comments");
+    }
+
+    res.status(200).send("EVENT_RECEIVED");
 })
 
 app.get('/test', function (req, res) {
