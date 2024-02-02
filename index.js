@@ -3,12 +3,11 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   crypto = require("crypto"),
   path = require("path"),
-  app = express();
+  app = express().use(bodyParser.json());
 
 var users = {};
 
 // Parse application/x-www-form-urlencoded
-app = express().use(bodyParser.json());
 
 
 
