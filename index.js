@@ -36,6 +36,8 @@ app.get('/api', function (req, res) {
 
 app.post('/api', function (req, res) {
     console.log("Post called")
+    console.log(JSON.stringify(req.body));
+
     console.dir(req.body);
 
     if(req.body.object == "comments") {
