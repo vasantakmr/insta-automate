@@ -32,6 +32,7 @@ app.get('/api', function (req, res) {
         res.sendStatus(403);
         }
     }
+    res.status(200).send("success");
 })
 
 app.post('/api', function (req, res) {
