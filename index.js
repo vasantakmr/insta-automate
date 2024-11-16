@@ -39,7 +39,7 @@ app.post('/api', function (req, res) {
     console.log("Post called")
     console.log(JSON.stringify(req.body));
 
-    console.dir(req.body.repository);
+    console.dir(req.body.repository.owner);
 
     if(req.body.object == "comments") {
         console.log("In comments");
